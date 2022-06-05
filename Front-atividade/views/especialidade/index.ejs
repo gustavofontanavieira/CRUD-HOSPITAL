@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+
+    <body style="background-color: #9EA2C6; color: rgb(255, 255, 255)"> 
+
+    <div class="container">
+
+            <div class="text-center mt-5">
+                <h2><i>Cadastro de especialidade</i></h2>
+                <hr>
+            </div>
+
+                <form action="http://localhost:3000/especialidade/cadastrarEspecialidade" 
+                method="post">
+
+                    <label for="nome_especialidade"></label>
+                    <input class="form-control" type="text" 
+                    name="nome_especialidade" id="nome_especialidade"
+                    placeholder="Nome da especialidade">
+
+                    <button class="btn btn-dark mt-2">Cadastrar</button>
+
+                </form>
+
+            
+        </div>
+
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>

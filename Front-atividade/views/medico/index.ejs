@@ -1,0 +1,62 @@
+<%- include('../partials/header.ejs') %>
+<body style="background-color: #9EA2C6; color: rgb(255, 255, 255)">
+    
+    <div class="container">
+
+        <div class="text-center mt-5">
+            <h2><i>Cadastro de Médico</i></h2>
+            <hr>
+        </div>
+
+            <form action="http://localhost:3000/medico/cadastrarMedico" 
+            method="post">
+
+                <label for="nome_medico"></label>
+                <input class="form-control" type="text" 
+                name="nome_medico" id="nome_medico"
+                placeholder="Nome do médico">
+
+                <label for="email_medico"></label>
+                <input class="form-control" type="text" 
+                name="email_medico" id="email_medico"
+                placeholder="E-mail do médico">
+
+                <label for="telefone_medico"></label>
+                <input class="form-control" type="text" 
+                name="telefone_medico" id="telefone_medico"
+                placeholder="Telefone do médico">
+
+                <label for="celular_medico"></label>
+                <input class="form-control" type="text" 
+                name="celular_medico" id="celular_medico"
+                placeholder="Celular do médico">
+
+                <h4 class="text-center mt-4"><i>Selecione uma especialidade</i></h4>
+                <label for="tblEspecialidadeId"></label>
+                <% especialidades.forEach(especialidade=>{ %>
+                <input type="checkbox" name="tblEspecialidadeId" id="tblEspecialidadeId"  value="<%= especialidade.id %>" 
+                onchange="cbChange(this)" class="btn btn-outline-info mt-1 ml-1 mb-1 link-check"> <%= especialidade.nome_especialidade %>⠀⠀⠀⠀⠀⠀⠀</a>
+                <%  }); %>
+
+                <br>
+                <button class="btn btn-info mt-3">CADATRAR</button>
+
+            </form>
+
+        
+    </div>
+
+</div>
+
+<script>
+    function cbChange(obj) {
+    let chkbx = document.getElementsByClassName("link-check");
+    for (let i = 0; i < chkbx.length; i++) {
+     if(chkbx[i] !== obj) chkbx[i].checked = false;
+   }
+}
+</script>
+</body>
+
+
+<%- include('../partials/footer.ejs') %>

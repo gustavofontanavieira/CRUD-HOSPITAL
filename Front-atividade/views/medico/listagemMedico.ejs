@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+	<body style="background-color: #9EA2C6; color: rgb(255, 255, 255)">
+		<div class="container">
+			<div class="text-center mt-5">
+				<h2><i>Listagem de médicos</i></h2></div>
+				<hr>
+			</div>
+
+			<%
+
+			medicos.map((medico) => {
+				let data;
+				especialidades.filter((especialidade) => {
+					if(medico.tblEspecialidadeId == especialidade.id ){
+						data = {
+							id: medico.id,
+							nomeMedico: medico.nome_medico,
+							nomeEspecialidade: especialidade.nome_especialidade,
+							telefoneMedico: medico.telefone_medico,
+							celularMedico: medico.celular_medico,
+							emailMedico: medico.email_medico
+						}
+						return data
+					}
+					}) %>
+					<div style="background-color:#57669E" class="border border-secondary container mt-3">
+						<h5 class="mt-2 mb-3">
+                            Nome: <i><%= data.nomeMedico,%></i>
+                            <br>
+                            E-mail: <i><%= data.emailMedico, %></i>
+                            <br>
+                            Telefone: <i><%= data.telefoneMedico, %></i>
+                            <br>
+                            Celular: <i><%= data.celularMedico, %></i>
+                            %>
+							<br>
+                            Especialidade: <i><%= data.nomeEspecialidade %></i>
+                        </h5>
+						<div class="mb-2 mt-2">
+							<a href="/editarMedico/<%= medico.id %>" class="btn btn-light">Editar</a>
+							<a href="/excluirMedico/<%= medico.id %>" class="btn btn-light">Excluir</a>
+						</div>
+					</div>
+					<% }); %>
+				<div class="text-center mt-5 mb-5">
+					<a href="/" class="btn btn-light mr-5">Home</a>
+					<a type="button" class="btn btn-light mr-2" href="medico">Novo médico</a>
+				</div>
+		</div>
+	</body>
+	<%- include('../partials/footer.ejs') %>
+
+</html>

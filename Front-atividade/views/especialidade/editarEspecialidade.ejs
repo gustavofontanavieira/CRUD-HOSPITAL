@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+
+    <body style="background-color: #9EA2C6; color: rgb(255, 255, 255)">
+
+    <div class="container">
+        <div class="text-center mt-5">
+                <h2><i>Editar Especialidade</i></h2>
+                <hr>
+        </div>
+            <form action="http://localhost:3001/editarEspecialidade" 
+            method="post">
+                    <label for="nome_especialidade"></label>
+                    <input type="hidden" name="id" value="<%= especialidade.id %>">
+
+                    <input class="form-control" type="text" 
+                    name="nome_especialidade" id="nome_especialidade"
+                    value="<%= especialidade.nome_especialidade %>"
+                    placeholder="Nome da especialidade">
+  
+                    <button class="btn btn-dark mt-3">Editar</button>
+                </form>
+            </div>
+    </div>
+
+</body>
+
+<%- include('../partials/footer.ejs') %>
+
+</html>
